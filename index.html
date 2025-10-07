@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Frequency Market Event Detector</title>
+    <!-- Load Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load React libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Load Babel for JSX support (to run Dashboard.jsx in the browser) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Load Socket.IO client (must be the same version as the server: ^4.7.4) -->
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <style>
+        .font-inter { font-family: 'Inter', sans-serif; }
+        /* Custom animation for spike */
+        @keyframes pulse-fast {
+            0%, 100% { background-color: #fee2e2; } /* red-100 */
+            50% { background-color: #fca5a5; } /* red-300 */
+        }
+        .animate-pulse-fast {
+            animation: pulse-fast 0.5s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- This script loads your Dashboard.jsx component -->
+    <script type="text/babel" src="./Dashboard.jsx"></script>
+
+    <script type="text/babel">
+        // Mount the main application component
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Dashboard />);
+    </script>
+</body>
+</html>
